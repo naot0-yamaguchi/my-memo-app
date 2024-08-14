@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" background: lightgray;>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Memo App</title>
+</head>
+<body>
+    <h1>表示用(1つ)</h1>
+    <div id="contents_container">
+        <div id="contents">{{ memo['contents'] }}</div>
+        <button id="update_button" onclick="window.location.href='http://localhost/edit/{{ memo['id'] }}'">更新</button>
+        <form method="post" action="http://localhost/delete/{{ memo['id'] }}">
+            <input type="hidden" name="_method" value="DELETE">
+            <button id="delete_button">削除</button>
+        </form>
+        <button id="back_to_list_button" onclick="window.location.href='http://localhost/list'">一覧に戻る</button>
+    </div>
+</body>
+</html>

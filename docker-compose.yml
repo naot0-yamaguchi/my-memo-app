@@ -1,0 +1,21 @@
+services:
+  frontend:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+  backend:
+    build: ./backend
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./instance/:/app/instance
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:////app/instance/memo.sqlite3
+      - ENV FLASK_APP=app
+      - ENV FLASK_ENV=development
+    command: >
+      sh -c "chmod 777 /app/instance && chmod 777 /app/instance/memo.sqlite3 && flask run --host=0.0.0.0"

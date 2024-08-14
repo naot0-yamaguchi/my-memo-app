@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" background: lightgray;>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Memo App</title>
+</head>
+<body>
+    <h1>一覧表示用</h1>
+    <button id="create_button" onclick="window.location.href='http://localhost/new'">新規作成</button>
+    <div id="contents_container">
+        {% for memo in memos %}
+            <div class="container" style="display: grid;grid-template-columns: 90% 10%;border-bottom: 1px solid #000;padding-top: 0.25%;padding-bottom: 0.25%;">
+                <div id="contents">{{ memo['contents'] }}</div>
+                <button id="show_detail_button" onclick="window.location.href='http://localhost/{{ memo['id'] }}'">詳細を表示</button>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

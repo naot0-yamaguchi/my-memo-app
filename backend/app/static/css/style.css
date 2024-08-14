@@ -1,0 +1,7 @@
+html {
+  background:darkgray
+}
+
+container {
+  display: grid;grid-template-columns: 90% 10%;border-bottom: 1px solid #000;padding-top: 0.25%;padding-bottom: 0.25%;
+}

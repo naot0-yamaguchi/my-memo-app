@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" background: lightgray;>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Memo App</title>
+</head>
+<body>
+    <h1>更新用</h1>
+    <div id="contents_container">
+        <div id="contents_container">内容</div>
+        <form id="contents_form" method="post" action="http://localhost/update/{{ memo['id'] }}">
+            <input type="hidden" name="_method" value="PATCH">
+            <textarea id="contents" name="contents">{{ memo['contents'] }}</textarea>
+            <button id="create_button" type="submit">更新</button>
+        </form>
+    </div>
+    <button id="back_to_list_button" onclick="window.location.href='http://localhost/list'">一覧に戻る</button>
+</body>
+</html>
